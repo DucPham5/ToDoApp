@@ -98,13 +98,14 @@ document.getElementById('title-color-picker').addEventListener('input', function
   const titleColor = this.value;
   document.getElementById('title').style.color = titleColor;
   document.getElementById('add-button').style.backgroundColor = titleColor;
-  localStorage.setItem('titleColor', titleColor);
+  localStorage.setItem('title-add-Color', titleColor);
 });
 
 // Apply saved colors on page load
 window.addEventListener('load', function () {
+  //pulls color data from local storage to save the color from previous use when loaded up again
   const savedBgColor = localStorage.getItem('bgColor');
-  const savedTitleColor = localStorage.getItem('titleColor');
+  const savedTitleColor = localStorage.getItem('title-add-Color');
 
   if (savedBgColor) {
       document.body.style.backgroundColor = savedBgColor;
@@ -113,6 +114,7 @@ window.addEventListener('load', function () {
 
   if (savedTitleColor) {
       document.getElementById('title').style.color = savedTitleColor;
+      document.getElementById('add-button').style.backgroundColor = savedTitleColor;
       document.getElementById('title-color-picker').value = savedTitleColor;
   }
 });

@@ -28,6 +28,7 @@ body{
 
 .color-picker-wrapper {
     margin-bottom: 1rem; /* Adds space between the color picker and the title */
+    gap: 1rem;/* Adds 1rem of space between the elements */
     display: flex; /* Aligns the label and input horizontally */
     align-items: center; /* Centers the label and input vertically */
 }
