@@ -7,7 +7,15 @@
     <script src = "app.js" defer></script>
   </head>
   <body>
-    <h1>ToDo App</h1>
+    
+    <div class="color-picker-wrapper">
+      <label for="bg-color-picker">Background color:</label>
+      <input type="color" id="bg-color-picker" />
+  
+      <label for="title-color-picker">Title color:</label>
+      <input type="color" id="title-color-picker" />
+  </div>
+    <h1 id = "title">ToDo App</h1>
     <div class="wrapper">
       <form>
         <input id = "todo-input" type="text" placeholder = "write anything and hit enter to add" autocomplete = "off">

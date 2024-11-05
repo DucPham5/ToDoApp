@@ -84,3 +84,35 @@ function getTodos() {
   const todos = localStorage.getItem("todos") || "[]"; //"[]" if array is empty;// todos is key to get the arr which we set in saveTodos
   return JSON.parse(todos); //.parse returns it back to javascript array since we saved it as json string
 }
+
+//update colors
+// Change background color
+document.getElementById('bg-color-picker').addEventListener('input', function () {
+  const bgColor = this.value;
+  document.body.style.backgroundColor = bgColor;
+  localStorage.setItem('bgColor', bgColor);
+});
+
+// Change title color
+document.getElementById('title-color-picker').addEventListener('input', function () {
+  const titleColor = this.value;
+  document.getElementById('title').style.color = titleColor;
+  document.getElementById('add-button').style.backgroundColor = titleColor;
+  localStorage.setItem('titleColor', titleColor);
+});
+
+// Apply saved colors on page load
+window.addEventListener('load', function () {
+  const savedBgColor = localStorage.getItem('bgColor');
+  const savedTitleColor = localStorage.getItem('titleColor');
+
+  if (savedBgColor) {
+      document.body.style.backgroundColor = savedBgColor;
+      document.getElementById('bg-color-picker').value = savedBgColor;
+  }
+
+  if (savedTitleColor) {
+      document.getElementById('title').style.color = savedTitleColor;
+      document.getElementById('title-color-picker').value = savedTitleColor;
+  }
+});
